@@ -1,11 +1,8 @@
 package com.ifmo.isdb;
 
-import com.ifmo.isdb.DB.Service.ApplicationService;
-import com.ifmo.isdb.DB.Service.CitizenApplicationService;
+import com.ifmo.isdb.DB.Service.*;
 import com.ifmo.isdb.DB.pojo.Application;
 import com.ifmo.isdb.DB.pojo.CitadelCitizen;
-import com.ifmo.isdb.DB.Service.CitizenService;
-import com.ifmo.isdb.DB.repos.CitizenApplicationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +19,10 @@ public class Controller {
     CitizenApplicationService citizenApplicationService;
     @Autowired
     Answer answer;
+    @Autowired
+    EmbassyApplicationService embassyApplicationService;
+    @Autowired
+    CouncilApplicationService councilApplicationService;
 
     @PostMapping(value = "/adduser")
     public void addNewUser(@RequestBody CitadelCitizen citizen) {
@@ -43,5 +44,20 @@ public class Controller {
         String login= SecurityContextHolder.getContext().getAuthentication().getName();
         CitadelCitizen citizen = citizenService.getCitizen(login);
         return citizenApplicationService.getApplications(citizen.getId());
+    }
+    @GetMapping(value = "/getCitizenApplicationsForEmbassy")
+    public ArrayList<Application> getCitizenApplicationsForEmbassy() {
+        String login= SecurityContextHolder.getContext().getAuthentication().getName();
+        CitadelCitizen citizen = citizenService.getCitizen(login);
+        return embassyApplicationService.getApplicationsForEmbassy(citizen.getRace());
+    }
+
+    @PostMapping(value = "/setStatusAndResult")
+    public void setStatusAndResult(@RequestBody Application application) {
+        embassyApplicationService.setStatusAndResult(application.getId(),application.getStatus(),application.getResult());
+    }
+    @GetMapping(value = "/getCitizenApplicationsForCouncil")
+    public ArrayList<Application> getCitizenApplicationsForCouncil() {
+        return councilApplicationService.getApplicationsForCouncil();
     }
 }
