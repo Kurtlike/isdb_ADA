@@ -20,7 +20,7 @@ public class CitadelCitizen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private int id;
 
     @Column(name = "permission", nullable = false)
     private Integer permission;
