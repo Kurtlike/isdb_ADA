@@ -26,3 +26,11 @@ function getCitizenApplications(){
             }
         )
 }
+window.onload=function () {
+    let promise = fetch("/getNotifications", { method : 'GET'}).
+    then(response => {
+        return response.json();
+    }).then((data) =>{
+       console.log(data);
+    });
+}

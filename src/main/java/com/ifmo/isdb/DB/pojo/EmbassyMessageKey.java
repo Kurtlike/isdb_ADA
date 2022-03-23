@@ -20,7 +20,7 @@ import java.time.LocalDate;
 public class EmbassyMessageKey implements Serializable {
     private static final long serialVersionUID = 7063787474085184326L;
     @Id
-    private int embassyRecipient;
+    private int embassy_recipient_id;
     @Id
     private String text;
     @Id

@@ -29,3 +29,30 @@ function updateCitizenApplication(){
         })
     });
 }
+function addNotification(){
+    let text = document.getElementById("notification").value;
+    fetch("/addNotification", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            text: text,
+        })
+    });
+}
+function addMessage(){
+    let message = document.getElementById("message").value;
+    let login = document.getElementById("recipient_login").value;
+    fetch("/addMessage", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            login: login,
+            message: message,
+        })
+    });
+}
+

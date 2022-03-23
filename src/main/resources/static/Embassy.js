@@ -29,3 +29,17 @@ function updateCitizenApplication(){
         })
     });
 }
+window.onload=function () {
+    fetch("/getNotifications", { method : 'GET'}).
+    then(response => {
+        return response.json();
+    }).then((data) =>{
+        console.log(data);
+    });
+    fetch("/getMessages", { method : 'GET'}).
+    then(response => {
+        return response.json();
+    }).then((data) =>{
+        console.log(data);
+    });
+}

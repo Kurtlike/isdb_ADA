@@ -2,6 +2,7 @@ package com.ifmo.isdb.DB.pojo;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Notification {
     private Integer id;
 
     @Lob
+    @Type(type = "org.hibernate.type.TextType")
     @Column(name = "text", nullable = false)
     private String text;
 }

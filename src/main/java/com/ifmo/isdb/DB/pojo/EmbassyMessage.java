@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class EmbassyMessage {
     @Id
     @Column(name = "embassy_recipient_id", nullable = false)
-    private int embassyRecipient;
+    private int embassy_recipient_id;
     @Id
     @Lob
     @Column(name = "text", nullable = false)
