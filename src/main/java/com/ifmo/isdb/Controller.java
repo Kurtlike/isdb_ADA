@@ -84,7 +84,7 @@ public class Controller {
     }
 
     @PostMapping(value = "/addNotification")
-    public void addNotification(@RequestBody String text) {
-        notificationsService.addNotification(text);
+    public void addNotification(@RequestBody Answer text) {
+        notificationsService.addNotification(text.getAnswer());
     }
 }

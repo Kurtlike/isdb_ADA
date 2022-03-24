@@ -34,12 +34,29 @@ window.onload=function () {
     then(response => {
         return response.json();
     }).then((data) =>{
-        console.log(data);
+        createNotificationsForm(data);
     });
     fetch("/getMessages", { method : 'GET'}).
     then(response => {
         return response.json();
     }).then((data) =>{
-        console.log(data);
+        createMessagesForm(data);
     });
+}
+function createNotificationsForm(data) {
+    let notificationsForm = document.getElementById("notificationsForm");
+    for(let i = 0; i < data.length; i++){
+        let notification = document.createElement("div");
+        notification.innerText = data[i].text;
+        notificationsForm.append(notification);
+
+    }
+}
+function createMessagesForm(data) {
+    let messagesForm = document.getElementById("messages");
+    for(let i = 0; i < data.length; i++){
+        let message = document.createElement("div");
+        message.innerText = data[i].text;
+        messagesForm.append(message);
+    }
 }

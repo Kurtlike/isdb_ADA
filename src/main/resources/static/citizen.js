@@ -31,6 +31,16 @@ window.onload=function () {
     then(response => {
         return response.json();
     }).then((data) =>{
-       console.log(data);
+        createNotificationsForm(data);
     });
+}
+function createNotificationsForm(data) {
+    let notificationsForm = document.getElementById("notificationsForm");
+    for(let i = 0; i < data.length; i++){
+
+        let notification = document.createElement("div");
+        notification.innerText = data[i].text;
+        notificationsForm.append(notification);
+
+    }
 }
