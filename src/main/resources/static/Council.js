@@ -3,10 +3,7 @@ function getCitizenApplicationsForCouncil(){
         .then(res => res.json())
         .then(
             (result) => {
-                console.log(result);
-            },
-            (error) => {
-                console.log(error);
+                createApplicationsForm(result);
             }
         )
 }
@@ -37,7 +34,7 @@ function addNotification(){
             'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify({
-            text: text,
+            answer: text,
         })
     });
 }
@@ -55,4 +52,28 @@ function addMessage(){
         })
     });
 }
-
+function createApplicationsForm(data) {
+    let applicationForm = document.getElementById("applications");
+    while (applicationForm.firstChild){
+        applicationForm.removeChild(applicationForm.firstChild);
+    }
+    for(let i = 0; i < data.length; i++){
+        let application = document.createElement("div");
+        application.className = "app";
+        let applicationId = document.createElement("div");
+        let applicationText = document.createElement("div");
+        let applicationStatus = document.createElement("div");
+        let applicationAnswer = document.createElement("div");
+        applicationId.innerText = data[i].id;
+        applicationId.className = "ids";
+        applicationText.innerText = data[i].text;
+        applicationText.className = "text";
+        applicationStatus.innerText = data[i].status;
+        applicationAnswer.innerText = data[i].result;
+        application.append(applicationId,applicationText,applicationStatus, applicationAnswer);
+        applicationForm.append(application);
+    }
+}
+window.onload=function () {
+    getCitizenApplicationsForCouncil();
+}

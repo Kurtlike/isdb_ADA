@@ -1,0 +1,72 @@
+html,body{
+    font-family: 'Lora', serif;
+    font-size: 25px;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: white;
+    background-color: #75a8f3;
+    display: flex;
+    flex-direction: row;
+}
+body>div{
+    margin: 20px;
+}
+button,input{
+    font-family: 'Lora', serif;
+    background-color: #2465ad;
+    color: #c0dcfa;
+    font-size: 20px;
+    border-radius: 20px;
+    border-color: #2b83f3;
+    margin: 10px;
+    text-align: center;
+}
+#logout{
+    flex: 0.5;
+}
+#applicationForm{
+    text-align: center;
+    flex: 3;
+}
+#applicationUpdate{
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+#notificationsForm{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+#messageForm{
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.app{
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    height: 80%;
+}
+.ids{
+    flex: 0.5;
+}
+.app>div{
+    flex: 1;
+    margin: 5px;
+}
+#message{
+    width: 90%;
+    height: 400px;
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    background-color: #abc9ff;
+    color: #2465ad;
+    border-radius: 8px;
+}

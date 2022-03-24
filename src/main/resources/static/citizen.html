@@ -2,25 +2,28 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Title</title>
+    <title>Citizen</title>
+    <link rel="stylesheet" type="text/css" href="css/citizen.css">
 </head>
 <body>
-    <div>
-        <h2>Sent application</h2>
-        <input id = "citizenApplication" type="text"></input>
-        <button onclick="sentCitizenApplication()">sent</button>
-    </div>
-    <div>
-        <h2>get application</h2>
-        <button onclick="getCitizenApplications()">get</button>
-    </div>
-    <div>
+    <div id="logout">
         <form action="/logout" method="post">
             <input type="submit" value="Sign Out"/>
         </form>
     </div>
+    <div id="applicationForm">
+        <h2>New application</h2>
+        <textarea id = "citizenApplication" type="text"></textarea>
+        <button onclick="sentCitizenApplication()">Sent Application</button>
+    </div>
+    <div id="getApplication">
+        <h2>Applications</h2>
+        <button onclick="getCitizenApplications()">Reload Applications</button>
+        <div id="applications"></div>
+    </div>
+
     <div id = "notificationsForm">
-        <h4>Notifications</h4>
+        <h2>Notifications</h2>
     </div>
 
 </body>
